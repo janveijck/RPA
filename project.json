@@ -1,0 +1,32 @@
+{
+  "name": "Thommy",
+  "description": "Thommy related stuff",
+  "main": "Main.xaml",
+  "dependencies": {
+    "Microsoft.Activities.Extensions": "[2.0.6.9]",
+    "UiPath.System.Activities": "[19.5.0]",
+    "UiPath.UIAutomation.Activities": "[19.5.0]",
+    "UiPath.Word.Activities": "[1.3.1]"
+  },
+  "schemaVersion": "3.2",
+  "studioVersion": "0.0.0.0",
+  "projectVersion": "1.0.7110.867",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "isPausable": true,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ]
+  },
+  "projectType": "Workflow",
+  "libraryOptions": {
+    "includeOriginalXaml": false,
+    "privateWorkflows": []
+  },
+  "arguments": {
+    "input": [],
+    "output": []
+  },
+  "webServices": []
+}

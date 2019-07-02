@@ -1,0 +1,516 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Google_Searches"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:p="http://schemas.uipath.com/workflow/activities/word"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Subject" Type="InArgument(x:String)" />
+    <x:Property Name="DirName" Type="InArgument(x:String)" />
+    <x:Property Name="PathName" Type="InArgument(x:String)" />
+    <x:Property Name="IS1ReportType" Type="InArgument(x:String)" />
+    <x:Property Name="z" Type="InArgument(x:Int32)" />
+    <x:Property Name="Searches" Type="InArgument(scg:List(x:String))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>Google_Searches_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>UiPath.Word.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Credentials.Activities</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Mail.Exchange.Activities</x:String>
+      <x:String>UiPath.Mail.IMAP.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.POP3.Activities</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>UiPath.PDF.Activities</x:String>
+      <x:String>UiPath.XPS.Activities</x:String>
+      <x:String>UiPath.Enterprise.Activities.Assets</x:String>
+      <x:String>UiPath.Enterprise.Activities.Process</x:String>
+      <x:String>UiPath.Enterprise.Activities.Queues</x:String>
+      <x:String>UiPath.Enterprise.Activities</x:String>
+      <x:String>UiPath.Web</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.JSON.Activities</x:String>
+      <x:String>UiPath.REST.Activities</x:String>
+      <x:String>UiPath.SOAP.Activities</x:String>
+      <x:String>UiPath.XML.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Core.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Credentials.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Enterprise.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Google Searches" sap2010:WorkflowViewState.IdRef="Sequence_187">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="z" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="strGoogleList" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="strGoogleNSSList" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="strGoogleSS1List" />
+      <Variable x:TypeArguments="x:String" Name="variable2" />
+    </Sequence.Variables>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_383">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[z]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">0</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_384">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:String)">[strGoogleList]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:String)">[new List(of string)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_398">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:String)">[strGoogleNSSList]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:String)">[new List(of string)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_399">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:String)">[strGoogleSS1List]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:String)">[new List(of string)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:ForEach x:TypeArguments="x:Object" DisplayName="For each" sap2010:WorkflowViewState.IdRef="ForEach`1_10" Values="[Searches]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_285">
+            <Sequence DisplayName="Google NSS" sap2010:WorkflowViewState.IdRef="Sequence_293">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="ui:GenericValue" Name="Td" />
+                <Variable x:TypeArguments="x:String" Default="https://www.google.nl/search?num=100&amp;lr=lang_nl&amp;newwindow=1&amp;hl=nl&amp;as_qdr=all&amp;tbs=lr%3Alang_1nl&amp;q=%22" Name="GoogleStringStart" />
+                <Variable x:TypeArguments="x:String" Default="[&quot;%22+(FCPA+OR+&quot;&quot;Foreign+Corrupt+Practices&quot;&quot;+OR+crimineel+OR+misdaad+OR+frauderen+OR+gefraudeerd+OR+bedriegen+OR+frauduleus+OR+omkoperij+OR+omgekocht+OR+omkoping+OR+corrupt+OR+corruptive)&quot;]" Name="GoogleStringEnd" />
+                <Variable x:TypeArguments="x:String" Default="janvaneijck" Name="SearchName" />
+                <Variable x:TypeArguments="x:String" Name="messageBox" />
+                <Variable x:TypeArguments="ui:GenericValue" Name="Volgende" />
+                <Variable x:TypeArguments="s:String[]" Name="NrSearchResults" />
+                <Variable x:TypeArguments="ui:GenericValue" Name="SearchResults" />
+                <Variable x:TypeArguments="x:Int32" Name="z" />
+                <Variable x:TypeArguments="x:String" Name="strSearch" />
+              </Sequence.Variables>
+              <Assign sap2010:WorkflowViewState.IdRef="Assign_390">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[strSearch]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[Searches(z).ToString.Replace(" ", "+")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap2010:WorkflowViewState.IdRef="Assign_391">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[messageBox]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[GoogleStringStart + strSearch + GoogleStringEnd]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open browser" Hidden="False" sap2010:WorkflowViewState.IdRef="OpenBrowser_498" NewSession="True" Private="False" Url="[messageBox]">
+                <ui:OpenBrowser.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence sap2010:WorkflowViewState.IdRef="Sequence_292">
+                      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_291">
+                        <DoWhile DisplayName="Do while" sap2010:WorkflowViewState.IdRef="DoWhile_7" Condition="[Volgende=&quot;Volgende&quot;]">
+                          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_290">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:Boolean" Name="bExists" />
+                            </Sequence.Variables>
+                            <Assign sap2010:WorkflowViewState.IdRef="Assign_392">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="ui:GenericValue">[Volgende]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="ui:GenericValue">[""]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <ui:UiElementExists DisplayName="Element Exists" Exists="[bExists]" sap2010:WorkflowViewState.IdRef="UiElementExists_31">
+                              <ui:UiElementExists.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;webctrl aaname='Volgende' parentid='pnnext' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+                              </ui:UiElementExists.Target>
+                            </ui:UiElementExists>
+                            <If Condition="[bExists=True]" sap2010:WorkflowViewState.IdRef="If_123">
+                              <If.Then>
+                                <ui:GetValue ContinueOnError="True" DisplayName="Get Text 'SPAN'" sap2010:WorkflowViewState.IdRef="GetValue_40">
+                                  <ui:GetValue.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="24fe64bfd00f9d071629da9f7dba92f2" Selector="&lt;webctrl aaname='Volgende' parentid='pnnext' /&gt;" WaitForReady="COMPLETE" />
+                                  </ui:GetValue.Target>
+                                  <ui:GetValue.Value>
+                                    <OutArgument x:TypeArguments="ui:GenericValue">[Volgende]</OutArgument>
+                                  </ui:GetValue.Value>
+                                </ui:GetValue>
+                              </If.Then>
+                            </If>
+                            <If Condition="[Volgende=&quot;Volgende&quot;]" sap2010:WorkflowViewState.IdRef="If_124">
+                              <If.Then>
+                                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'A  pnnext'" sap2010:WorkflowViewState.IdRef="Click_71" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                                  <ui:Click.CursorPosition>
+                                    <ui:CursorPosition OffsetX="71" OffsetY="7" Position="TopLeft" />
+                                  </ui:Click.CursorPosition>
+                                  <ui:Click.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="e6789194bd41dad03da1863fbbd94db5" Selector="&lt;webctrl id='pnnext' tag='A' /&gt;" WaitForReady="COMPLETE" />
+                                  </ui:Click.Target>
+                                </ui:Click>
+                              </If.Then>
+                              <If.Else>
+                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'I'" sap2010:WorkflowViewState.IdRef="GetValue_41">
+                                  <ui:GetValue.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b4915632e071d38f4b0179959911e932" Selector="&lt;webctrl parentid='ofr' tag='I' /&gt;" WaitForReady="COMPLETE" />
+                                  </ui:GetValue.Target>
+                                  <ui:GetValue.Value>
+                                    <OutArgument x:TypeArguments="ui:GenericValue">[SearchResults]</OutArgument>
+                                  </ui:GetValue.Value>
+                                </ui:GetValue>
+                              </If.Else>
+                            </If>
+                          </Sequence>
+                        </DoWhile>
+                      </Sequence>
+                      <Assign sap2010:WorkflowViewState.IdRef="Assign_393">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="s:String[]">[NrSearchResults]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="s:String[]">[SearchResults.ToString.Split(" "c)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:OpenBrowser.Body>
+              </ui:OpenBrowser>
+              <AddToCollection x:TypeArguments="x:String" Collection="[strGoogleNSSList]" DisplayName="Add to collection" sap2010:WorkflowViewState.IdRef="AddToCollection`1_62" Item="[NrSearchResults(8)]" />
+            </Sequence>
+            <Sequence DisplayName="Google SS1" sap2010:WorkflowViewState.IdRef="Sequence_297">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="ui:GenericValue" Name="Td" />
+                <Variable x:TypeArguments="x:String" Default="https://www.google.nl/search?num=100&amp;lr=lang_nl&amp;newwindow=1&amp;hl=nl&amp;as_qdr=all&amp;tbs=lr%3Alang_1nl&amp;q=%22" Name="GoogleStringStart" />
+                <Variable x:TypeArguments="x:String" Default="[&quot;%22+(Cuba+OR+Iran+OR+Soedan+OR+Sudan+OR+&quot;&quot;Noord+Korea&quot;&quot;+OR+Krim+OR+Syrië+OR+Diamanthandel+OR+&quot;&quot;handel+in+diamanten&quot;&quot;)&quot;]" Name="GoogleStringEnd" />
+                <Variable x:TypeArguments="x:String" Default="janvaneijck" Name="SearchName" />
+                <Variable x:TypeArguments="x:String" Name="messageBox" />
+                <Variable x:TypeArguments="ui:GenericValue" Name="Volgende" />
+                <Variable x:TypeArguments="s:String[]" Name="NrSearchResults" />
+                <Variable x:TypeArguments="ui:GenericValue" Name="SearchResults" />
+                <Variable x:TypeArguments="x:Int32" Name="z" />
+                <Variable x:TypeArguments="x:String" Name="strSearch" />
+              </Sequence.Variables>
+              <Assign sap2010:WorkflowViewState.IdRef="Assign_394">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[strSearch]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[Searches(z).ToString.Replace(" ", "+")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap2010:WorkflowViewState.IdRef="Assign_395">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[messageBox]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[GoogleStringStart + strSearch + GoogleStringEnd]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open browser" Hidden="False" sap2010:WorkflowViewState.IdRef="OpenBrowser_499" NewSession="True" Private="False" Url="[messageBox]">
+                <ui:OpenBrowser.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence sap2010:WorkflowViewState.IdRef="Sequence_296">
+                      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_295">
+                        <DoWhile DisplayName="Do while" sap2010:WorkflowViewState.IdRef="DoWhile_8" Condition="[Volgende=&quot;Volgende&quot;]">
+                          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_294">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:Boolean" Name="bExists" />
+                            </Sequence.Variables>
+                            <Assign sap2010:WorkflowViewState.IdRef="Assign_396">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="ui:GenericValue">[Volgende]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="ui:GenericValue">[""]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <ui:UiElementExists DisplayName="Element Exists" Exists="[bExists]" sap2010:WorkflowViewState.IdRef="UiElementExists_32">
+                              <ui:UiElementExists.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;webctrl aaname='Volgende' parentid='pnnext' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+                              </ui:UiElementExists.Target>
+                            </ui:UiElementExists>
+                            <If Condition="[bExists=True]" sap2010:WorkflowViewState.IdRef="If_125">
+                              <If.Then>
+                                <ui:GetValue ContinueOnError="True" DisplayName="Get Text 'SPAN'" sap2010:WorkflowViewState.IdRef="GetValue_42">
+                                  <ui:GetValue.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="24fe64bfd00f9d071629da9f7dba92f2" Selector="&lt;webctrl aaname='Volgende' parentid='pnnext' /&gt;" WaitForReady="COMPLETE" />
+                                  </ui:GetValue.Target>
+                                  <ui:GetValue.Value>
+                                    <OutArgument x:TypeArguments="ui:GenericValue">[Volgende]</OutArgument>
+                                  </ui:GetValue.Value>
+                                </ui:GetValue>
+                              </If.Then>
+                            </If>
+                            <If Condition="[Volgende=&quot;Volgende&quot;]" sap2010:WorkflowViewState.IdRef="If_126">
+                              <If.Then>
+                                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'A  pnnext'" sap2010:WorkflowViewState.IdRef="Click_72" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                                  <ui:Click.CursorPosition>
+                                    <ui:CursorPosition OffsetX="71" OffsetY="7" Position="TopLeft" />
+                                  </ui:Click.CursorPosition>
+                                  <ui:Click.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="e6789194bd41dad03da1863fbbd94db5" Selector="&lt;webctrl id='pnnext' tag='A' /&gt;" WaitForReady="COMPLETE" />
+                                  </ui:Click.Target>
+                                </ui:Click>
+                              </If.Then>
+                              <If.Else>
+                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'I'" sap2010:WorkflowViewState.IdRef="GetValue_43">
+                                  <ui:GetValue.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b4915632e071d38f4b0179959911e932" Selector="&lt;webctrl parentid='ofr' tag='I' /&gt;" WaitForReady="COMPLETE" />
+                                  </ui:GetValue.Target>
+                                  <ui:GetValue.Value>
+                                    <OutArgument x:TypeArguments="ui:GenericValue">[SearchResults]</OutArgument>
+                                  </ui:GetValue.Value>
+                                </ui:GetValue>
+                              </If.Else>
+                            </If>
+                          </Sequence>
+                        </DoWhile>
+                      </Sequence>
+                      <Assign sap2010:WorkflowViewState.IdRef="Assign_397">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="s:String[]">[NrSearchResults]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="s:String[]">[SearchResults.ToString.Split(" "c)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:OpenBrowser.Body>
+              </ui:OpenBrowser>
+              <AddToCollection x:TypeArguments="x:String" Collection="[strGoogleSS1List]" DisplayName="Add to collection" sap2010:WorkflowViewState.IdRef="AddToCollection`1_63" Item="[NrSearchResults(8)]" />
+            </Sequence>
+            <p:DocumentReplaceText Found="{x:Null}" DisplayName="Replace generic google search " FilePath="[PathName + DirName + &quot;\&quot; + IS1ReportType + &quot;_Workfile - &quot; + Subject + &quot;.docx&quot;]" sap2010:WorkflowViewState.IdRef="DocumentReplaceText_171" Replace="[strGoogleList(z)]" Search="[&quot;Ass&quot;+z.ToString]" />
+            <p:DocumentReplaceText Found="{x:Null}" DisplayName="Replace Google NSS" FilePath="[PathName + DirName + &quot;\&quot; + IS1ReportType + &quot;_Workfile - &quot; + Subject + &quot;.docx&quot;]" sap2010:WorkflowViewState.IdRef="DocumentReplaceText_172" Replace="[strGoogleNSSList(z)]" Search="[&quot;AssNSS&quot;+z.ToString]" />
+            <p:DocumentReplaceText Found="{x:Null}" DisplayName="Replace Google SS1 " FilePath="[PathName + DirName + &quot;\&quot; + IS1ReportType + &quot;_Workfile - &quot; + Subject + &quot;.docx&quot;]" sap2010:WorkflowViewState.IdRef="DocumentReplaceText_173" Replace="[strGoogleSS1List(z)]" Search="[&quot;AssSS1&quot;+z.ToString]" />
+            <Assign sap2010:WorkflowViewState.IdRef="Assign_389">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[z]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[z+1]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <sads:DebugSymbol.Symbol>d2JDOlxVc2Vyc1xqdmVpamNrXE9uZURyaXZlXERvY3VtZW50c1xKb2xhXFRob21zb24gUmV1dGVyc1xVSVBhdGhcSGVsbG8gQnJvd25pZVxHb29nbGUgU2VhcmNoZXMueGFtbHtqA/0CDgIBAXIFeQ4DAbQBegWBAQ4DAbABggEFiQEOAwGsAYoBBZEBDgMBqAGSAQX7AhICAQJ3L3cwAwG3AXQwdDMDAbUBfzp/TwMBswF8O3xKAwGxAYcBOocBTwMBrwGEATuEAU0DAa0BjwE6jwFPAwGrAYwBO4wBTQMBqQGSAXmSAYUBAwGmAZgBC/gCFgIBA5kBDYICGAIBaIMCDewCGAIBKu0CDe0C2gICAR/uAg3uAtQCAgEU7wIN7wLVAgIBCfACDfcCFgIBBJwBPpwBvAECAWudAT6dAZsCAgFqngE+ngFLAgFppgEPrQEYAwGgAa4BD7UBGAMBmQG2AQ+AAiACAXGBAg+BAtABAgFshgI+hgK8AQIBLYcCPocC6wECASyIAj6IAksCASuQAg+XAhgCAWKYAg+fAhgCAVugAg/qAiACATPrAg/rAtABAgEu7QK5Au0C1wICASjtAp0C7QKxAgIBJe0Ca+0C2gECASDuArAC7gLRAgIBHe4CkQLuAqgCAgEa7gJf7gLOAQIBFe8CsQLvAtICAgES7wKSAu8CqQICAQ/vAmDvAs8BAgEK9QI39QI8AgEH8gI48gI7AgEFqwE6qwFiAwGjAagBO6gBRgMBoQGzATqzAWsDAZwBsAE7sAFHAwGaAbYBywG2AdkBAwGXAbwBFf0BIAIBcoECRoECWgIBb4ECtwGBAs0BAgFtlQI6lQJiAgFlkgI7kgJGAgFjnQI6nQJrAgFemgI7mgJHAgFcoALLAaAC2QECAVmmAhXnAiACATTrAkbrAloCATHrArcB6wLNAQIBL70BF/QBIgIBd/UBF/wBIAIBc6cCF94CIgIBOd8CF+YCIAIBNb4BGfMBIwIBePoBRPoBaAIBdvcBRfcBVgIBdKgCGd0CIwIBOuQCROQCaAIBOOECReECVgIBNr4Bb74BkAEDAZYBvwEb8gEmAgF5qAJvqAKQAQIBWKkCG9wCJgIBO8MBHcoBJgMBkgHLAR3PATIDAY0B0AEd2wEiAwGFAdwBHfEBIgIBeq0CHbQCJgIBVLUCHbkCMgIBT7oCHcUCIgIBR8YCHdsCIgIBPMgBT8gBUwMBlQHFAVDFAVoDAZMBzQFizQGZAQMBkQHNAaQBzQGqAQMBkAHLAVXLAWADAY4B0AEr0AE7AwGGAdIBIdkBLwMBiAHcASvcAUwCAXveASHlASwDAYAB6AEh7wEvAgF8sgJPsgJTAgFXrwJQrwJaAgFVtwJitwKZAQIBU7cCpAG3AqoBAgFStQJVtQJgAgFQugIrugI7AgFIvAIhwwIvAgFKxgIrxgJMAgE9yAIhzwIsAgFC0gIh2QIvAgE+1wFU1wFeAwGKAdIBPtIBRAMBiQHUAbQB1AHrAQMBjAHjAbQB4wHbAQMBhAHeAX7eAYQBAwGDAeABTeABUAMBggHgAUDgAUQDAYEB7QFU7QFjAgF96gG0AeoB3gECAX/BAlTBAl4CAUy8Aj68AkQCAUu+ArQBvgLrAQIBTs0CtAHNAtsBAgFGyAJ+yAKEAQIBRcoCTcoCUAIBRMoCQMoCRAIBQ9cCVNcCYwIBP9QCtAHUAt4BAgFB</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Assign_383" sap:VirtualizedContainerService.HintSize="241.142857142857,61.1428571428571" />
+      <sap2010:ViewStateData Id="Assign_384" sap:VirtualizedContainerService.HintSize="241.142857142857,61.1428571428571" />
+      <sap2010:ViewStateData Id="Assign_398" sap:VirtualizedContainerService.HintSize="241.142857142857,61.1428571428571" />
+      <sap2010:ViewStateData Id="Assign_399" sap:VirtualizedContainerService.HintSize="241.142857142857,61.1428571428571" />
+      <sap2010:ViewStateData Id="Assign_390" sap:VirtualizedContainerService.HintSize="241.142857142857,60" />
+      <sap2010:ViewStateData Id="Assign_391" sap:VirtualizedContainerService.HintSize="241.142857142857,60" />
+      <sap2010:ViewStateData Id="Assign_392" sap:VirtualizedContainerService.HintSize="241.142857142857,61.1428571428571" />
+      <sap2010:ViewStateData Id="UiElementExists_31" sap:VirtualizedContainerService.HintSize="241.142857142857,52.5714285714286" />
+      <sap2010:ViewStateData Id="GetValue_40" sap:VirtualizedContainerService.HintSize="200,52.5714285714286" />
+      <sap2010:ViewStateData Id="If_123" sap:VirtualizedContainerService.HintSize="241.142857142857,52.5714285714286" />
+      <sap2010:ViewStateData Id="Click_71" sap:VirtualizedContainerService.HintSize="200,52.5714285714286" />
+      <sap2010:ViewStateData Id="GetValue_41" sap:VirtualizedContainerService.HintSize="200,52.5714285714286" />
+      <sap2010:ViewStateData Id="If_124" sap:VirtualizedContainerService.HintSize="464,213.714285714286" />
+      <sap2010:ViewStateData Id="Sequence_290" sap:VirtualizedContainerService.HintSize="200,52.5714285714286">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="DoWhile_7" sap:VirtualizedContainerService.HintSize="464,228.571428571429" />
+      <sap2010:ViewStateData Id="Sequence_291" sap:VirtualizedContainerService.HintSize="241.142857142857,51.4285714285714">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_393" sap:VirtualizedContainerService.HintSize="241.142857142857,60" />
+      <sap2010:ViewStateData Id="Sequence_292" sap:VirtualizedContainerService.HintSize="262.857142857143,274.857142857143">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="OpenBrowser_498" sap:VirtualizedContainerService.HintSize="241.142857142857,51.4285714285714" />
+      <sap2010:ViewStateData Id="AddToCollection`1_62" sap:VirtualizedContainerService.HintSize="241.142857142857,21.7142857142857" />
+      <sap2010:ViewStateData Id="Sequence_293" sap:VirtualizedContainerService.HintSize="241.142857142857,52.5714285714286">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_394" sap:VirtualizedContainerService.HintSize="241.142857142857,60" />
+      <sap2010:ViewStateData Id="Assign_395" sap:VirtualizedContainerService.HintSize="241.142857142857,60" />
+      <sap2010:ViewStateData Id="Assign_396" sap:VirtualizedContainerService.HintSize="241.142857142857,61.1428571428571" />
+      <sap2010:ViewStateData Id="UiElementExists_32" sap:VirtualizedContainerService.HintSize="241.142857142857,52.5714285714286" />
+      <sap2010:ViewStateData Id="GetValue_42" sap:VirtualizedContainerService.HintSize="200,52.5714285714286" />
+      <sap2010:ViewStateData Id="If_125" sap:VirtualizedContainerService.HintSize="241.142857142857,52.5714285714286" />
+      <sap2010:ViewStateData Id="Click_72" sap:VirtualizedContainerService.HintSize="200,52.5714285714286" />
+      <sap2010:ViewStateData Id="GetValue_43" sap:VirtualizedContainerService.HintSize="200,52.5714285714286" />
+      <sap2010:ViewStateData Id="If_126" sap:VirtualizedContainerService.HintSize="464,213.714285714286" />
+      <sap2010:ViewStateData Id="Sequence_294" sap:VirtualizedContainerService.HintSize="200,52.5714285714286">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="DoWhile_8" sap:VirtualizedContainerService.HintSize="200,51.4285714285714" />
+      <sap2010:ViewStateData Id="Sequence_295" sap:VirtualizedContainerService.HintSize="221.714285714286,174.857142857143">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_397" sap:VirtualizedContainerService.HintSize="241.142857142857,60" />
+      <sap2010:ViewStateData Id="Sequence_296" sap:VirtualizedContainerService.HintSize="262.857142857143,274.857142857143">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="OpenBrowser_499" sap:VirtualizedContainerService.HintSize="413.714285714286,149.714285714286" />
+      <sap2010:ViewStateData Id="AddToCollection`1_63" sap:VirtualizedContainerService.HintSize="241.142857142857,21.7142857142857" />
+      <sap2010:ViewStateData Id="Sequence_297" sap:VirtualizedContainerService.HintSize="241.142857142857,52.5714285714286">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="DocumentReplaceText_171" sap:VirtualizedContainerService.HintSize="241.142857142857,52.5714285714286">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="DocumentReplaceText_172" sap:VirtualizedContainerService.HintSize="241.142857142857,52.5714285714286">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="DocumentReplaceText_173" sap:VirtualizedContainerService.HintSize="241.142857142857,51.4285714285714">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_389" sap:VirtualizedContainerService.HintSize="241.142857142857,60" />
+      <sap2010:ViewStateData Id="Sequence_285" sap:VirtualizedContainerService.HintSize="262.857142857143,645.142857142857">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ForEach`1_10" sap:VirtualizedContainerService.HintSize="285.714285714286,197.714285714286" />
+      <sap2010:ViewStateData Id="Sequence_187" sap:VirtualizedContainerService.HintSize="262.857142857143,580.571428571429">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Google_Searches_1" sap:VirtualizedContainerService.HintSize="302.857142857143,660.571428571429">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

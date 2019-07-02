@@ -1,0 +1,296 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Google_Generic_Search" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="strGoogleList" Type="InArgument(scg:List(x:String))" />
+    <x:Property Name="z" Type="InArgument(x:Int32)" />
+    <x:Property Name="Searches" Type="InOutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>302.857142857143,634.857142857143</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Google_Generic_Search_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Credentials.Activities</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Mail.Exchange.Activities</x:String>
+      <x:String>UiPath.Mail.IMAP.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.POP3.Activities</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>UiPath.PDF.Activities</x:String>
+      <x:String>UiPath.XPS.Activities</x:String>
+      <x:String>UiPath.Enterprise.Activities.Process</x:String>
+      <x:String>UiPath.Web</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.JSON.Activities</x:String>
+      <x:String>UiPath.REST.Activities</x:String>
+      <x:String>UiPath.SOAP.Activities</x:String>
+      <x:String>UiPath.XML.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Credentials.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="Google Generic Search Recording Sequence" sap:VirtualizedContainerService.HintSize="262.857142857143,554.857142857143" sap2010:WorkflowViewState.IdRef="Sequence_289">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:GenericValue" Name="Td" />
+      <Variable x:TypeArguments="x:String" Default="https://www.google.nl/search?num=100&amp;lr=lang_nl&amp;newwindow=1&amp;hl=nl&amp;as_qdr=all&amp;tbs=lr%3Alang_1nl&amp;q=%22" Name="GoogleStringStart" />
+      <Variable x:TypeArguments="x:String" Default="%22&amp;as_oq=&amp;as_eq=&amp;as_nlo=&amp;as_nhi=&amp;lr=lang_nl&amp;cr=&amp;as_qdr=all&amp;as_sitesearch=&amp;as_occt=any&amp;safe=images&amp;as_filetype=&amp;as_rights=" Name="GoogleStringEnd" />
+      <Variable x:TypeArguments="x:String" Default="janvaneijck" Name="SearchName" />
+      <Variable x:TypeArguments="x:String" Name="messageBox" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="Volgende" />
+      <Variable x:TypeArguments="s:String[]" Name="NrSearchResults" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="SearchResults" />
+      <Variable x:TypeArguments="x:Int32" Name="z" />
+      <Variable x:TypeArguments="x:String" Default="jan" Name="strSearch" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="strGoogleNSSList" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="strGoogleSS1List" />
+      <Variable x:TypeArguments="x:String" Name="Searches" />
+      <Variable x:TypeArguments="x:String" Name="CRNNew" />
+      <Variable x:TypeArguments="x:String" Name="CRN" />
+      <Variable x:TypeArguments="ui:Browser" Name="Nexis" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InputDialog Options="{x:Null}" DisplayName="CRN" sap:VirtualizedContainerService.HintSize="241.142857142857,52.5714285714286" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="What is the CRN?" Title="What is the CRN?">
+      <ui:InputDialog.Result>
+        <OutArgument x:TypeArguments="x:String">[CRN]</OutArgument>
+      </ui:InputDialog.Result>
+    </ui:InputDialog>
+    <ui:InputDialog Options="{x:Null}" DisplayName="Search Subject" sap:VirtualizedContainerService.HintSize="241.142857142857,52.5714285714286" sap2010:WorkflowViewState.IdRef="InputDialog_3" IsPassword="False" Label="What is the Search Subject?" Title="What is the Search Subject?">
+      <ui:InputDialog.Result>
+        <OutArgument x:TypeArguments="x:String">[Searches]</OutArgument>
+      </ui:InputDialog.Result>
+    </ui:InputDialog>
+    <Assign DisplayName="Alter CRN variable for filename" sap:VirtualizedContainerService.HintSize="241.142857142857,61.1428571428571" sap2010:WorkflowViewState.IdRef="Assign_425">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[CRNNew]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[CRN.Replace("\","-")]</InArgument>
+      </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </Assign>
+    <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Delete browser cache" Hidden="False" sap:VirtualizedContainerService.HintSize="241.142857142857,52.5714285714286" sap2010:WorkflowViewState.IdRef="OpenBrowser_513" NewSession="True" Private="False" Url="http://www.google.com">
+      <ui:OpenBrowser.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="221.714285714286,268.571428571429" sap2010:WorkflowViewState.IdRef="Sequence_347">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:SendHotkey DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayBefore="2000" DisplayName="Send hotkey 'iexplore.exe Delete'" EmptyField="False" sap:VirtualizedContainerService.HintSize="200,52.5714285714286" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="del" KeyModifiers="Ctrl, Shift" SendWindowMessages="False" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="73755cd764f54bc21b0e7cd602740830" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='Google - Internet Explorer' /&gt;" WaitForReady="INTERACTIVE" />
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="313.714285714286,105.142857142857" sap2010:WorkflowViewState.IdRef="Click_144" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="f98756837315f30f800018031916891b" Selector="&lt;wnd app='iexplore.exe' cls='#32770' title='Delete Browsing History' /&gt;&lt;wnd omit:ctrlid='5543' title='&amp;amp;Delete' /&gt;" WaitForReady="INTERACTIVE" />
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </ActivityAction>
+      </ui:OpenBrowser.Body>
+    </ui:OpenBrowser>
+    <While sap:VirtualizedContainerService.HintSize="464,224" sap2010:WorkflowViewState.IdRef="While_1" Condition="[Searches&lt;&gt;&quot;&quot;]">
+      <Sequence DisplayName="Searches Execution" sap:VirtualizedContainerService.HintSize="262.857142857143,1346.85714285714" sap2010:WorkflowViewState.IdRef="Sequence_305">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="ui:GenericValue" Name="NexisSearch" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign sap:VirtualizedContainerService.HintSize="241.142857142857,61.1428571428571" sap2010:WorkflowViewState.IdRef="Assign_414">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strSearch]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[Searches.ToString.Replace(" ", "+")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="241.142857142857,61.1428571428571" sap2010:WorkflowViewState.IdRef="Assign_420">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[GoogleStringEnd]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">%22&amp;as_oq=&amp;as_eq=&amp;as_nlo=&amp;as_nhi=&amp;lr=lang_nl&amp;cr=&amp;as_qdr=all&amp;as_sitesearch=&amp;as_occt=any&amp;safe=images&amp;as_filetype=&amp;as_rights=</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="241.142857142857,61.1428571428571" sap2010:WorkflowViewState.IdRef="Assign_415">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[messageBox]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[GoogleStringStart + strSearch + GoogleStringEnd]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Generic Search" Hidden="False" sap:VirtualizedContainerService.HintSize="241.142857142857,52.5714285714286" sap2010:WorkflowViewState.IdRef="OpenBrowser_505" NewSession="True" Private="False" Url="[messageBox]">
+          <ui:OpenBrowser.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+              </ActivityAction.Argument>
+            </ActivityAction>
+          </ui:OpenBrowser.Body>
+        </ui:OpenBrowser>
+        <Assign sap:VirtualizedContainerService.HintSize="241.142857142857,61.1428571428571" sap2010:WorkflowViewState.IdRef="Assign_416">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[GoogleStringEnd]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">["%22+(FCPA+OR+""Foreign+Corrupt+Practices""+OR+crimineel+OR+misdaad+OR+frauderen+OR+gefraudeerd+OR+bedriegen+OR+frauduleus+OR+omkoperij+OR+omgekocht+OR+omkoping+OR+corrupt+OR+corruptive)"]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="241.142857142857,61.1428571428571" sap2010:WorkflowViewState.IdRef="Assign_417">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[messageBox]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[GoogleStringStart + strSearch + GoogleStringEnd]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="IE" DisplayName="NSS" Hidden="False" sap:VirtualizedContainerService.HintSize="241.142857142857,52.5714285714286" sap2010:WorkflowViewState.IdRef="OpenBrowser_506" NewSession="True" Private="False" Url="[messageBox]">
+          <ui:OpenBrowser.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+              </ActivityAction.Argument>
+            </ActivityAction>
+          </ui:OpenBrowser.Body>
+        </ui:OpenBrowser>
+        <Assign sap:VirtualizedContainerService.HintSize="241.142857142857,61.1428571428571" sap2010:WorkflowViewState.IdRef="Assign_418">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[GoogleStringEnd]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">["%22+(Cuba+OR+Iran+OR+Soedan+OR+Sudan+OR+""Noord+Korea""+OR+Krim+OR+Syrië+OR+Diamanthandel+OR+""handel+in+diamanten"")"]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap:VirtualizedContainerService.HintSize="241.142857142857,61.1428571428571" sap2010:WorkflowViewState.IdRef="Assign_419">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[messageBox]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[GoogleStringStart + strSearch + GoogleStringEnd]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="IE" DisplayName="SS1" Hidden="False" sap:VirtualizedContainerService.HintSize="241.142857142857,52.5714285714286" sap2010:WorkflowViewState.IdRef="OpenBrowser_507" NewSession="True" Private="False" Url="[messageBox]">
+          <ui:OpenBrowser.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+              </ActivityAction.Argument>
+            </ActivityAction>
+          </ui:OpenBrowser.Body>
+        </ui:OpenBrowser>
+        <ui:InputDialog Options="{x:Null}" DisplayName="Input dialog" sap:VirtualizedContainerService.HintSize="241.142857142857,52.5714285714286" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Label="What is the Nexis Subject?" Title="What is the Nexis Subject?">
+          <ui:InputDialog.Result>
+            <OutArgument x:TypeArguments="ui:GenericValue">[NexisSearch]</OutArgument>
+          </ui:InputDialog.Result>
+        </ui:InputDialog>
+        <If Condition="[NexisSearch&lt;&gt;&quot;&quot;]" sap:VirtualizedContainerService.HintSize="464,213.714285714286" sap2010:WorkflowViewState.IdRef="If_138">
+          <If.Then>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke IS1NexisSearch workflow" sap:VirtualizedContainerService.HintSize="313.714285714286,86.2857142857143" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="IS1NexisSearch.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="ui:GenericValue" x:Key="NexisSearch">[NexisSearch]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="CRNNew">[CRNNew]</InArgument>
+                <OutArgument x:TypeArguments="ui:Browser" x:Key="Nexis">[Nexis]</OutArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+          </If.Then>
+        </If>
+        <ui:InputDialog Options="{x:Null}" DisplayName="Input dialog" sap:VirtualizedContainerService.HintSize="241.142857142857,52.5714285714286" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="What is the Search Subject?" Title="What is the Search Subject?">
+          <ui:InputDialog.Result>
+            <OutArgument x:TypeArguments="x:String">[Searches]</OutArgument>
+          </ui:InputDialog.Result>
+        </ui:InputDialog>
+      </Sequence>
+    </While>
+  </Sequence>
+</Activity>

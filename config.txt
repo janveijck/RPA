@@ -1,0 +1,7 @@
+{
+     "PathName" : "C:\\Users\\USSR\\OneDrive\\Documents\\Jola\\Thomson Reuters\\",
+     "WorkfileName" : "J001_J018_J072_Workfile-Template for vendors_February 2016_Clean.docx",
+     "IS1OldReportFile" : "J018,J001,J072 Client Template - for subcontractors_November 2015 - Clean.docx",
+     "TemplatesPath" : "C:\\Users\\USSR\\OneDrive\\Documents\\Jola\\Thomson Reuters\\Templates\\"
+
+}
